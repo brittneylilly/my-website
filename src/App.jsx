@@ -1,121 +1,58 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+import { useState, useEffect } from 'react'
+
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const myNameText = "~/brittney.lilly"
+  const [displayedText, setDisplayedText] = useState("")
+  const [step, setStep] = useState(0)
+  const [fillActive, setFillActive] = useState(false)
+
+  useEffect(() => {
+    const startDelay = setTimeout(() => {
+      let index = 0
+      const interval = setInterval(() => {
+        setDisplayedText(myNameText.slice(0, index + 1))
+        index++
+        if (index == myNameText.length) {
+          clearInterval(interval)
+          setTimeout(() => setStep(1), 500)
+          setTimeout(() => setStep(2), 1500)
+          setTimeout(() => setStep(3), 2500)
+          setTimeout(() => {
+            setStep(4)
+            setTimeout(() => setFillActive(true), 50)
+          }, 3500)
+          setTimeout(() => setStep(5), 6550)
+
+        }
+      }, 100)
+    }, 800)
+
+  return () => clearTimeout(startDelay)
+  }, [])
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div className="intro-container">
+      <h1>
+        {displayedText}
+        <span className="cursor">|</span>
+      </h1>
+      {step >= 1 && <p>initializing...</p>}
+      {step >= 2 && <p>loading brittney.lilly...</p>}
+      {step >= 3 && <p>installing dependencies...</p>}
+      {step >= 4 && (
+        <div className="progress-track">
+          <div className="progress-fill" style={{ width: fillActive ? '100%' : '0%' }}></div>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
+      )}
+      {step >= 5 && (
+        <button className="run-button">
+          run →
         </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      )}
+ 
+    </div>
   )
 }
 
