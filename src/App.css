@@ -39,11 +39,12 @@ p {
 }
 
 .progress-track {
-  width: 350px;
+  width: 358px;
   height: 8px;
   background-color: #C8DAF873;
   border-radius: 4px;
   overflow: hidden;
+  margin-top: 2rem;
 }
 
 .progress-fill {
@@ -65,4 +66,13 @@ p {
   letter-spacing: 0.05em;
   box-shadow: rgba(102, 144, 204, 0.15) 0px 0px 20px;
   margin-top: 2rem;
+}
+
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }

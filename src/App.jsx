@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import './App.css'
 
@@ -7,6 +7,7 @@ function App() {
   const [displayedText, setDisplayedText] = useState("")
   const [step, setStep] = useState(0)
   const [fillActive, setFillActive] = useState(false)
+  const canvasRef = useRef(null)
 
   useEffect(() => {
     const startDelay = setTimeout(() => {
@@ -32,8 +33,55 @@ function App() {
   return () => clearTimeout(startDelay)
   }, [])
 
+  useEffect(() => {
+    const canvas = canvasRef.current
+    const ctx = canvas.getContext('2d')
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+    const fontSize = 18
+    const columns = Math.floor(canvas.width / fontSize)
+    const drops =  new Array(columns).fill(0).map(() => Math.floor(Math.random() * (canvas.height /fontSize)))
+    const characters = '01'
+
+    let animationId
+    let lastTime = 0
+    const frameDelay = 100
+
+    function draw(time) {
+      animationId = requestAnimationFrame(draw)
+
+      if (time - lastTime < frameDelay) return
+      lastTime = time
+
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      ctx.fillStyle = 'rgba(122, 168, 232, 0.25)'
+      ctx.font=`${fontSize}px monospace`
+
+      for (let i = 0; i < drops.length; i++) {
+        const x = i * fontSize
+        const y = canvas.height - (drops[i] * fontSize)
+        const char = characters[Math.floor(Math.random() * characters.length)]
+        ctx.fillText(char, x, y)
+      
+
+        drops[i] += 1
+        if (y < 0) {
+          drops[i] = 0
+        }
+      }
+    
+    }
+
+    draw(0)
+
+    return () => cancelAnimationFrame(animationId)
+
+  }, [])
+
   return (
     <div className="intro-container">
+      <canvas ref={canvasRef} className="matrix-bg"></canvas>
       <h1>
         {displayedText}
         <span className="cursor">|</span>
