@@ -7,8 +7,9 @@
 h1 {
   font-family: 'JetBrains Mono', monospace;
   color: #E8F0FF;
-  font-size: 32px;
+  font-size: 36px;
   margin-bottom: 2rem;
+  
 }
 
 p {
@@ -38,7 +39,7 @@ p {
 }
 
 .progress-track {
-  width: 250px;
+  width: 350px;
   height: 8px;
   background-color: #C8DAF873;
   border-radius: 4px;

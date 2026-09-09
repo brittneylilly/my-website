@@ -39,8 +39,8 @@ function App() {
         <span className="cursor">|</span>
       </h1>
       {step >= 1 && <p>initializing...</p>}
-      {step >= 2 && <p>loading brittney.lilly...</p>}
-      {step >= 3 && <p>installing dependencies...</p>}
+      {step >= 2 && <p>installing dependencies...</p>}
+      {step >= 3 && <p>loading brittney.lilly...</p>}
       {step >= 4 && (
         <div className="progress-track">
           <div className="progress-fill" style={{ width: fillActive ? '100%' : '0%' }}></div>
