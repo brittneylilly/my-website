@@ -18,7 +18,7 @@ p {
 
 }
 
-{/*call the cursor class named in App.css so I can add animation to it */}
+
 .cursor {
   animation: blink 1s step-end infinite;
 }
