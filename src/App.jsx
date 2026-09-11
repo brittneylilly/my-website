@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 
 import './App.css'
+import Home from './Home.jsx'
 
 function App() {
   const myNameText = "~/brittney.lilly"
@@ -8,6 +9,7 @@ function App() {
   const [step, setStep] = useState(0)
   const [fillActive, setFillActive] = useState(false)
   const canvasRef = useRef(null)
+  const [currentView, setCurrentView] = useState('intro')
 
   useEffect(() => {
     const startDelay = setTimeout(() => {
@@ -80,27 +82,34 @@ function App() {
   }, [])
 
   return (
-    <div className="intro-container">
-      <canvas ref={canvasRef} className="matrix-bg"></canvas>
-      <h1>
-        {displayedText}
-        <span className="cursor">|</span>
-      </h1>
-      {step >= 1 && <p>initializing...</p>}
-      {step >= 2 && <p>installing dependencies...</p>}
-      {step >= 3 && <p>loading brittney.lilly...</p>}
-      {step >= 4 && (
-        <div className="progress-track">
-          <div className="progress-fill" style={{ width: fillActive ? '100%' : '0%' }}></div>
-        </div>
-      )}
-      {step >= 5 && (
-        <button className="run-button">
-          run →
-        </button>
-      )}
+    <>
+      {currentView === 'intro' && (
+        <div className="intro-container">
+          <canvas ref={canvasRef} className="matrix-bg"></canvas>
+          <h1>
+            {displayedText}
+            <span className="cursor">|</span>
+          </h1>
+          {step >= 1 && <p>initializing...</p>}
+          {step >= 2 && <p>installing dependencies...</p>}
+          {step >= 3 && <p>loading brittney.lilly...</p>}
+          {step >= 4 && (
+            <div className="progress-track">
+              <div className="progress-fill" style={{ width: fillActive ? '100%' : '0%' }}></div>
+            </div>
+          )}
+          {step >= 5 && (
+            <button className="run-button" onClick={() => setCurrentView('home')}>
+              run →
+            </button>
+          )}
  
-    </div>
+        </div>
+
+      )}
+
+      {currentView === 'home' && <Home />}
+    </>
   )
 }
 

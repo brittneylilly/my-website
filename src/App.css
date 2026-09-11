@@ -55,6 +55,8 @@ p {
 }
 
 .run-button {
+  -webkit-appearance: none;
+  appearance: none;
   font-family: 'JetBrains Mono', monospace;
   color: rgb(232, 240, 255);
   border: 1px, solid rgba(102, 144, 204, 0.5);
