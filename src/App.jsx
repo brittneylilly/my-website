@@ -2,6 +2,10 @@ import { useState, useEffect, useRef } from 'react'
 
 import './App.css'
 import Home from './Home.jsx'
+import About from './About.jsx'
+import Work from './Work.jsx'
+import Interests from './Interests.jsx'
+import Socials from './Socials.jsx'
 
 function App() {
   const myNameText = "./brittney.lilly"
@@ -109,6 +113,10 @@ function App() {
       )}
 
       {currentView === 'home' && <Home setCurrentView={setCurrentView} />}
+      {currentView === 'about' && <About setCurrentView={setCurrentView} />}
+      {currentView === 'work' && <Work setCurrentView={setCurrentView} />}
+      {currentView === 'interests' && <Interests setCurrentView={setCurrentView} />}
+      {currentView === 'socials' && <Socials setCurrentView={setCurrentView} />}
     </>
   )
 }

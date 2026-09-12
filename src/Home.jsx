@@ -56,7 +56,7 @@ function Home({ setCurrentView }) {
             </div>
             <div className="nav-box" onClick={() => setCurrentView('interests')}>
               <h3 className="nav-title">My Interests</h3>
-              <p className="nav-subtitle">cd interests</p>
+              <p className="nav-subtitle">cd extracurriculars</p>
             </div>
             <div className="nav-box" onClick={() => setCurrentView('socials')}>
               <h3 className="nav-title">My Socials</h3>

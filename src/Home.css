@@ -57,13 +57,13 @@
 .home-tagline {
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
-  color: #666666;
+  color: #524D6A;
   margin-top: 4px;
 }
 
 .home-clock {
-  font-size: 14px;
-  color: #666666;
+  font-size: 12px;
+  color: #524D6A;
 }
 
 .terminal-box {
@@ -71,6 +71,7 @@
   border-radius: 8px;
   background-color: #ffffff;
   overflow: hidden;
+  box-shadow: 0 4px 24px rgba(122, 168, 232, 0.15);
 }
 
 .terminal-header {
@@ -79,7 +80,7 @@
   background-color: #ececf0; 
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
-  color: #524D6A;
+  color: #999999;
 }
 
 .terminal-body {
@@ -116,7 +117,7 @@
 .prompt-line {
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 1px;
 }
 
 .prompt-text {
@@ -163,7 +164,7 @@
 .nav-box {
   border: 1px solid #e0e0e0;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 0.4rem 1rem;
   background-color: transparent;
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
@@ -178,14 +179,14 @@
   font-weight: 700;
   font-size: 16px;
   color: #1E1B2E;
-  margin: 0 0 4px;
+  margin: 0 0 1px;
   transition: color 0.2s ease;
 }
 
 .nav-subtitle {
   font-family: 'Archivo', sans-serif;
   font-size: 13px;
-  color: #524D6A;
+  color: #999999;
   margin: 0;
 }
 

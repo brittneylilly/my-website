@@ -1,0 +1,74 @@
+.page-header {
+  width: 100%;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #ffffff;
+}
+
+.page-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+}
+
+.back-button {
+  font-family: 'Archivo', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: #2E2A44;
+  background: transparent;
+  border: 2px solid #333333;
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.back-button:hover {
+  background: linear-gradient(135deg, rgba(170, 59, 255, 0.08), rgba(122, 168, 232, 0.08));
+  border-color: #7aa8e8;
+  color: #7aa8e8;
+}
+
+.page-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #7aa8e8;
+  margin: 0;
+}
+
+.page-clock {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #524D6A;
+  margin: 0;
+}
+
+.page-command-row {
+  display: flex;
+  gap: 1px;
+  padding: 0.75rem 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.prompt-text {
+  color: #7aa8e8;
+  font-size: 14px;
+}
+
+.prompt-placeholder {
+  color: #999999;
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+  color: #333333;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
