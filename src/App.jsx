@@ -4,7 +4,7 @@ import './App.css'
 import Home from './Home.jsx'
 
 function App() {
-  const myNameText = "~/brittney.lilly"
+  const myNameText = "./brittney.lilly"
   const [displayedText, setDisplayedText] = useState("")
   const [step, setStep] = useState(0)
   const [fillActive, setFillActive] = useState(false)
