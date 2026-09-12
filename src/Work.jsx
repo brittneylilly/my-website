@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import PageHeader from './PageHeader.jsx'
 import './Work.css'
 
@@ -60,13 +61,44 @@ const projects = [
 ]
 
 function Work({ setCurrentView }) {
+  const [tilt, setTilt] = useState({ x: 0, y: 0 })
+  const [hoveredIndex, setHoveredIndex] = useState(null)
+
+  function handleMouseMove(e) {
+    const card = e.currentTarget
+    const rect = card.getBoundingClientRect()
+    const centerX = rect.left + rect.width / 2
+    const centerY = rect.top + rect.height / 2
+    const offsetX = e.clientX - centerX
+    const offsetY = e.clientY - centerY
+    const rotateX = (offsetY / (rect.height / 2)) * -8
+    const rotateY = (offsetX / (rect.width / 2)) * 8
+    setTilt({ x: rotateX, y: rotateY })
+  }
+
+  function handleMouseLeave() {
+    setTilt({ x: 0, y: 0 })
+    setHoveredIndex(null)
+  }
+
   return (
     <div className="page-wrapper">
       <PageHeader pageName="projects" setCurrentView={setCurrentView} />
       <div className="work-content">
         <div className="project-grid">
           {projects.map((project, index) => (
-            <div className="project-card" key={index}>
+            <div 
+              className="project-card" 
+              key={index}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              onMouseEnter={() => setHoveredIndex(index)}
+              style={{
+                transform: hoveredIndex === index
+                  ? `perspective(600px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(1.03)`
+                  : 'perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)'
+              }}
+            >  
               <a href={project.link} target="_blank" rel="noopener noreferrer">
                 <img src={project.image} className="project-image" alt={project.name} />
               </a>
