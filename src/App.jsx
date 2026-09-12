@@ -108,7 +108,7 @@ function App() {
 
       )}
 
-      {currentView === 'home' && <Home />}
+      {currentView === 'home' && <Home setCurrentView={setCurrentView} />}
     </>
   )
 }

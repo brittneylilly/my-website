@@ -1,6 +1,17 @@
+import { useState, useEffect } from 'react'
 import './Home.css'
 
-function Home() {
+function Home({ setCurrentView }) {
+  const [currentTime, setCurrentTime] = useState(new Date())
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date())
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [])
+  
   return (
     <div className="home-page">
       <div className="home-container">
@@ -11,7 +22,7 @@ function Home() {
               <p className="home-tagline">Columbia CS '28 · AI builder, solutions architect, innovation seeker</p>
             </div>
             <div className="header-right">
-              <p className="home-clock">12:00:00 AM</p>
+              <p className="home-clock">{currentTime.toLocaleTimeString()}</p>
             </div>
           </div>
           <div className="terminal-box">
@@ -35,19 +46,19 @@ function Home() {
           <p className="explore-text">or just click to explore</p>
 
           <div className="nav-grid">
-            <div className="nav-box">
+            <div className="nav-box" onClick={() => setCurrentView('work')}>
               <h3 className="nav-title">My AI Work</h3>
               <p className="nav-subtitle">cd projects</p>
             </div>
-            <div className="nav-box">
+            <div className="nav-box" onClick={() => setCurrentView('about')}>
               <h3 className="nav-title">About Me</h3>
               <p className="nav-subtitle">cd about</p>
             </div>
-            <div className="nav-box">
+            <div className="nav-box" onClick={() => setCurrentView('interests')}>
               <h3 className="nav-title">My Interests</h3>
               <p className="nav-subtitle">cd interests</p>
             </div>
-            <div className="nav-box">
+            <div className="nav-box" onClick={() => setCurrentView('socials')}>
               <h3 className="nav-title">My Socials</h3>
               <p className="nav-subtitle">cd links</p>
             </div>
