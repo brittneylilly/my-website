@@ -172,3 +172,28 @@
     max-width: 100%;
   }
 }
+
+.filter-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  margin: 1rem 0 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  background: transparent;
+  color: #000000;
+  border: 1px solid #333333;
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+
+.filter-active {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}

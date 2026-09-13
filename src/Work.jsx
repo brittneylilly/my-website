@@ -70,6 +70,12 @@ const projects = [
 function Work({ setCurrentView }) {
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
   const [hoveredIndex, setHoveredIndex] = useState(null)
+  const [activeFilter, setActiveFilter] = useState('all')
+
+  const allTags = ['all', ...new Set(projects.flatMap(project => project.tags))]
+  const filteredProjects = activeFilter === 'all'
+    ? projects
+    : projects.filter(project => project.tags.includes(activeFilter))
 
   function handleMouseMove(e) {
     const card = e.currentTarget
@@ -92,8 +98,19 @@ function Work({ setCurrentView }) {
     <div className="page-wrapper">
       <PageHeader pageName="projects" setCurrentView={setCurrentView} />
       <div className="work-content">
+        <div className="filter-row">
+          {allTags.map((tag, i) => (
+            <button
+              key={i}
+              className={`filter-pill ${activeFilter === tag ? 'filter-active' : ''}`}
+              onClick={() => setActiveFilter(tag)}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
         <div className="project-grid">
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <div 
               className="project-card" 
               key={index}

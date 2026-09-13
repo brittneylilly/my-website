@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './Home.css'
+import myHeadshot from './assets/IMG_2249_Original.jpg'
 
 function Home({ setCurrentView }) {
   const [currentTime, setCurrentTime] = useState(new Date())
