@@ -193,3 +193,36 @@
 .nav-box:hover .nav-title {
   color: #7aa8e8;
 }
+
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+  }
+
+  .home-left {
+    flex: none;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .home-right {
+    flex: none;
+    width: 100%;
+    max-width: 500px;
+    order: 2;
+  }
+
+  .header-row {
+    text-align: center;
+  }
+
+  .header-left {
+    text-align: center;
+  }
+
+  .header-right {
+    text-align: center;
+  }
+}

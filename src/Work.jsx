@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import PageHeader from './PageHeader.jsx'
 import './Work.css'
+import pytorchLogo from './assets/PyTorchLogo.png'
+import bowieStateimg from './assets/bowiestate1.png'
+import omiappimg from './assets/OMI3.png'
+import researchimg from './assets/SLPprojectdescription.png'
 
 const projects = [
   {
@@ -10,25 +14,28 @@ const projects = [
     tags: ["ai", "largeLanguageModels", "machineLearning"],
     tools: ["Python", "PyTorch", "Pandas"],
     link: "https://github.com/brittneylilly/Emotive-Accented-Speech-LLM",
-    image: "/path-to-image.png"
+    image: null,
+    tagline: "An Emotion-Conditioned, Mandarin-Accented English Language Model for Empathetic Dialogue Systems Research"
   },
   {
     name: "PyTorch Merged PR",
     description: "Resolved a Sphinx doc build warning for torchao documentation.",
     year: "2026",
     tags: ["ai", "openSourceContribution"],
-    tools: ["Sphinx", "RST"],
+    tools: ["Sphinx", "reStructuredText"],
     link: "https://github.com/pytorch/ao/pull/4515#issuecomment-5022444460",
-    image: "/path-to-image.png"
+    image: pytorchLogo,
+    bgColor: '#000000'
   },
   {
-    name: "Tech Fellow for COSC 491: Special Topcis - AI Engineering",
-    description: "Teaching team member for COSC 491 at Bowie State University and CodePath, leading programming labs and holding office hours for a cohort of 9 students.",
+    name: "Teaching Tech Fellow, COSC 491: Special Topics in CS - AI Engineering",
+    description: "Teaching team member for COSC 491 Course at Bowie State University through CodePath.org's Univeristy Partnership, where I lead in-class AI programming and skills labs and hold office hours for a group of 11 undergraduate students.",
     year: "2026",
     tags: ["ai", "teachingAssistant"],
     tools: ["Python", "Streamlit"],
     link: "https://github.com/yourname/project-repo",
-    image: "/path-to-image.png"
+    image: bowieStateimg,
+    bgColor: '#FFCE00'
   },
   {
     name: "Chatbot",
@@ -41,12 +48,12 @@ const projects = [
   },
   {
     name: "Omi AI Voice Transcription App",
-    description: "Speech-to-Text notification app built with FastAPI webhook server from Based Hardware's open-source AI wearable codebase.",
+    description: "Speech-to-Text notification app built with FastAPI webhook server from Based Hardware's open-source AI wearable, Omi.",
     year: "2025",
     tags: ["ai", "spokenLanguageProcessing", "automaticSpeechRecognition", "APIs", "webhooks"],
     tools: ["Python", "FastAPI"],
     link: "https://github.com/yourname/project-repo",
-    image: "/path-to-image.png"
+    image: omiappimg
   },
   {
     name: "ML Dataset for Training Empathetic Chatbots for Students Learning English ",
@@ -55,9 +62,9 @@ const projects = [
     tags: ["ai", "openSourceContribution", "machineLearning", "research", "spokenLanguageProcessing", "automaticSpeechRecognition"],
     tools: ["Hugging Face"],
     link: "https://huggingface.co/datasets/sylviali/EDEN_ASR_Data",
-    image: "/path-to-image.png"
+    image: researchimg,
+    bgColor: 'rgba(255, 255, 255, 0.93)'
   }
-
 ]
 
 function Work({ setCurrentView }) {
@@ -99,9 +106,20 @@ function Work({ setCurrentView }) {
                   : 'perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)'
               }}
             >  
-              <a href={project.link} target="_blank" rel="noopener noreferrer">
-                <img src={project.image} className="project-image" alt={project.name} />
-              </a>
+              {project.image ? (
+                <a href={project.link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="project-image-frame"
+                style={{ backgroundColor: project.bgColor }}>
+                  <img src={project.image} className="project-image" alt={project.name} />
+                </a>
+              ) : (
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-placeholder">
+                  <span className="placeholder-name">{project.name}</span>
+                  <span className="placeholder-tagline">{project.tagline}</span>
+                </a>
+              )}
               <div className="project-meta">
                 <span className="project-year">{project.year}</span>
                 {project.tags.map((tag, i) => (
