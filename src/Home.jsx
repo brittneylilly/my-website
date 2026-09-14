@@ -17,7 +17,6 @@ function Home({ setCurrentView }) {
       setCommand('')
     }
   }
-    
   
   useEffect(() => {
     const timer = setInterval(() => {

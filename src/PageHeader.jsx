@@ -5,6 +5,7 @@ function PageHeader({ pageName, setCurrentView }) {
   const [currentTime, setCurrentTime] = useState(new Date())
   const [command, setCommand] = useState('')
   const inputRef = useRef(null)
+  
 
   useEffect(() => {
     const timer = setInterval(() => {
