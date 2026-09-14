@@ -271,3 +271,18 @@
   transform: rotate(-5deg);
 }
 
+.terminal-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: #524D6A;
+  flex: 1;
+  margin-left: 6px
+}
+
+.terminal-input::placeholder {
+  color: #999999;
+  font-family: 'JetBrains Mono', monospace;
+}

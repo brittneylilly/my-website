@@ -1,16 +1,34 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './Home.css'
 import myHeadshot from './assets/headshot.jpg'
 
 function Home({ setCurrentView }) {
+  const [command, setCommand] = useState('')
   const [currentTime, setCurrentTime] = useState(new Date())
+  const inputRef = useRef(null)
 
+  function handleCommand(e) {
+    if (e.key === 'Enter') {
+      const cmd = command.trim().toLowerCase()
+      if (cmd === 'cd projects') setCurrentView('work')
+      else if (cmd === 'cd about') setCurrentView('about')
+      else if (cmd === 'cd extracurriculars') setCurrentView('interests')
+      else if (cmd === 'cd links') setCurrentView('socials')
+      setCommand('')
+    }
+  }
+    
+  
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date())
     }, 1000)
 
     return () => clearInterval(timer)
+  }, [])
+
+  useEffect(() => {
+    inputRef.current.focus()
   }, [])
   
   return (
@@ -38,8 +56,14 @@ function Home({ setCurrentView }) {
             <div className="terminal-prompt">
               <div className="prompt-line">
                 <span className="prompt-text">brittney@BrittneysComputer:~$</span>
-                <span className="cursor">|</span>
-                <span className="prompt-placeholder">type a command...</span>
+                <input
+                ref={inputRef}
+                  className="terminal-input"
+                  value={command}
+                  onChange={(e) => setCommand(e.target.value)}
+                  onKeyDown={handleCommand}
+                  placeholder="type a command..."
+                />
               </div>
               <p className="prompt-hint">try: cd projects</p>
             </div>
