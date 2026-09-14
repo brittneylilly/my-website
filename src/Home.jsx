@@ -66,7 +66,7 @@ function Home({ setCurrentView }) {
                   {!hasFocused && (
                     <span className="fake-input-display" onClick={() => inputRef.current.focus()}>
                       <span className="fake-cursor">|</span>
-                      <span className="fake-placeholder">type a command</span>
+                      <span className="fake-placeholder">type a command here</span>
                     </span>
                   )}
                 </div>
