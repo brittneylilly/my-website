@@ -61,12 +61,12 @@ function Home({ setCurrentView }) {
                     onChange={(e) => setCommand(e.target.value)}
                     onKeyDown={handleCommand}
                     onFocus={() => setHasFocused(true)}
-                    placeholder="type a command..."
+                    placeholder="type a command...."
                   />
                   {!hasFocused && (
                     <span className="fake-input-display" onClick={() => inputRef.current.focus()}>
                       <span className="fake-cursor">|</span>
-                      <span className="fake-placeholder">type a command...</span>
+                      <span className="fake-placeholder">type a command</span>
                     </span>
                   )}
                 </div>
