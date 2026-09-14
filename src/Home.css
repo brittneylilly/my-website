@@ -229,6 +229,10 @@
   .header-right {
     text-align: center;
   }
+
+  .terminal-input {
+    font-size: 16px;
+  }
 }
 
 .photo-frame {

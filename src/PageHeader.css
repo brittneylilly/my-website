@@ -89,3 +89,9 @@
   color: #999999;
   font-family: 'JetBrains Mono', monospace;
 }
+
+@media (max-width: 768px) {
+  .terminal-input {
+    font-size: 16px;
+  }
+}
