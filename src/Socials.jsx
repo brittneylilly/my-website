@@ -46,7 +46,7 @@ function Socials({ setCurrentView }) {
 
   return (
     <div className="page-wrapper">
-      <PageHeader pageName="socials" setCurrentView={setCurrentView} />
+      <PageHeader pageName="links" setCurrentView={setCurrentView} />
       <div className="socials-content">
         
         <div className="socials-grid">

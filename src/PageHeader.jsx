@@ -1,8 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './PageHeader.css'
 
 function PageHeader({ pageName, setCurrentView }) {
   const [currentTime, setCurrentTime] = useState(new Date())
+  const [command, setCommand] = useState('')
+  const inputRef = useRef(null)
+
+  useEffect(() => {
+  inputRef.current.focus()
+  }, [])
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -11,6 +17,18 @@ function PageHeader({ pageName, setCurrentView }) {
 
     return () => clearInterval(timer)
   }, [])
+
+  function handleCommand(e) {
+    if (e.key === 'Enter') {
+      const cmd = command.trim().toLowerCase()
+      if (cmd === 'cd home') setCurrentView('home')
+      else if (cmd === 'cd projects') setCurrentView('work')
+      else if (cmd === 'cd about') setCurrentView('about')
+      else if (cmd === 'cd extracurriculars') setCurrentView('interests')
+      else if (cmd === 'cd links') setCurrentView('socials')
+      setCommand('')
+    }
+  }
 
   return (
     <div className="page-header">
@@ -23,10 +41,17 @@ function PageHeader({ pageName, setCurrentView }) {
       </div>
 
       <div className="page-command-row">
-        <span className="prompt-text">brittney@BrittneysComputer:~$</span>
-        <span className="cursor">|</span>
-        <span className="prompt-placeholder">type a command...</span>
+        <span className="prompt-text">brittney@portfolio:~$</span>
+        <input
+          ref={inputRef}
+          className="terminal-input"
+          value={command}
+          onChange={(e) => setCommand(e.target.value)}
+          onKeyDown={handleCommand}
+          placeholder="type a command..."
+        />
       </div>
+      
     </div>
   )
 }
