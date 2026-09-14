@@ -53,6 +53,12 @@ function Home({ setCurrentView }) {
             <div className="terminal-prompt">
               <div className="prompt-line">
                 <span className="prompt-text">brittney@BrittneysComputer:~$</span>
+                {!hasFocused && (
+                  <span className="fake-input-display" onClick={() => inputRef.current.focus()}>
+                    <span className="fake-cursor">|</span>
+                    <span className="fake-placeholer">type a command...</span>
+                  </span>
+                )}
                 <input
                   ref={inputRef}
                   className="terminal-input"
@@ -60,10 +66,9 @@ function Home({ setCurrentView }) {
                   onChange={(e) => setCommand(e.target.value)}
                   onKeyDown={handleCommand}
                   onFocus={() => setHasFocused(true)}
-                  placeholder={hasFocused ? "type a command..." : ""}
+                  placeholder="type a command..."
+                  style={{ display: hasFocused ? 'block' : 'none' }}
                 />
-                {!hasFocused && <span className="fake-cursor">|</span>}
-                {!hasFocused && <span className="fake-placeholder">type a command...</span>}
               </div>
               <p className="prompt-hint">try: cd projects</p>
             </div>
