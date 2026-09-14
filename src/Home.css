@@ -154,15 +154,15 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
-.cursor {
+
+.fake-cursor {
   animation: blink 1s step-end infinite;
-  color: #333333;
+  color: #524D6A;
 }
 
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
+.fake-placeholder {
+  color: #999999;
+  margin-left: 4px;
 }
 
 
@@ -213,6 +213,8 @@
 .nav-box:hover .nav-title {
   color: #7aa8e8;
 }
+
+
 
 @media (max-width: 768px) {
   .home-container {

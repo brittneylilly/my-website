@@ -6,6 +6,7 @@ function Home({ setCurrentView }) {
   const [command, setCommand] = useState('')
   const [currentTime, setCurrentTime] = useState(new Date())
   const inputRef = useRef(null)
+  const [hasFocused, setHasFocused] = useState(false)
 
   function handleCommand(e) {
     if (e.key === 'Enter') {
@@ -53,13 +54,16 @@ function Home({ setCurrentView }) {
               <div className="prompt-line">
                 <span className="prompt-text">brittney@BrittneysComputer:~$</span>
                 <input
-                ref={inputRef}
+                  ref={inputRef}
                   className="terminal-input"
                   value={command}
                   onChange={(e) => setCommand(e.target.value)}
                   onKeyDown={handleCommand}
-                  placeholder="type a command..."
+                  onFocus={() => setHasFocused(true)}
+                  placeholder={hasFocused ? "type a command..." : ""}
                 />
+                {!hasFocused && <span className="fake-cursor">|</span>}
+                {!hasFocused && <span className="fake-placeholder">type a command...</span>}
               </div>
               <p className="prompt-hint">try: cd projects</p>
             </div>
