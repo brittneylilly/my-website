@@ -19,7 +19,6 @@
   margin-top: 1.5rem;
 }
 
-/* the last 3 lines are for giving white boxes around each project*/
 .project-card {
   display: flex;
   flex-direction: column;

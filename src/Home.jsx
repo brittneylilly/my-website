@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './Home.css'
-import myHeadshot from './assets/IMG_2249_Original.jpg'
+import myHeadshot from './assets/headshot.jpg'
 
 function Home({ setCurrentView }) {
   const [currentTime, setCurrentTime] = useState(new Date())
@@ -67,7 +67,10 @@ function Home({ setCurrentView }) {
 
         </div>
         <div className="home-right">
-          {/* photo goes here later */}
+          <div className="photo-frame">
+            <img src={myHeadshot} className="home-photo" alt="pic" />
+            <div className="photo-caption">hi, i'm brittney</div>
+          </div>
         </div>
       </div>
     </div>
