@@ -136,6 +136,24 @@
   margin: 0;
 }
 
+.terminal-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: #524D6A;
+  flex: 1;
+  margin-left: 6px;
+  caret-color: #524D6A;
+  min-width: 0;
+}
+
+.terminal-input::placeholder {
+  color: #999999;
+  font-family: 'JetBrains Mono', monospace;
+}
+
 .cursor {
   animation: blink 1s step-end infinite;
   color: #333333;
@@ -275,18 +293,3 @@
   transform: rotate(-5deg);
 }
 
-.terminal-input {
-  background: transparent;
-  border: none;
-  outline: none;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
-  color: #524D6A;
-  flex: 1;
-  margin-left: 6px
-}
-
-.terminal-input::placeholder {
-  color: #999999;
-  font-family: 'JetBrains Mono', monospace;
-}
