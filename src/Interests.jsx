@@ -4,8 +4,8 @@ import './Interests.css'
 import  NSFlogo from './assets/NSFlogo2.png'
 import hackathonimg from './assets/roboticshackathon.jpg'
 import athenaimg from './assets/athenaincubatormypresentation.jpg'
-import CSLlogo from './assets/Columbia-Startup-Lab-Logo.png'
-import lionsmoothieimg from './assets/LionSmoothie2.png'
+import CSLlogo from './assets/CSLlogo2.png'
+import lionsmoothieimg from './assets/lionsmoothie2.png'
 
 
 const extracurriculars = [
@@ -26,8 +26,8 @@ const extracurriculars = [
   },
   {
     name: "Columbia Robotics Hackathon",
-    description: "Software developer on hackathon team to implement NVIDIA Instant Neural Radiance Field",
-    tags: ["ai", "hackathons"],
+    description: "Software developer on hackathon team to implement NVIDIA Instant Neural Radiance Field with robotic arm for image capture",
+    tags: ["ai", "hackathons", "softwareDevelopment"],
     image: hackathonimg,
     bgColor: '#ffffff',
  
