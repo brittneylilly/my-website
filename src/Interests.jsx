@@ -5,7 +5,7 @@ import  NSFlogo from './assets/NSFlogo2.png'
 import hackathonimg from './assets/roboticshackathon.jpg'
 import athenaimg from './assets/athenaincubatormypresentation.jpg'
 import CSLlogo from './assets/Columbia-Startup-Lab-Logo.png'
-import lionsmoothieimg from './assets/LionSmoothie.png'
+import lionsmoothieimg from './assets/LionSmoothie2.png'
 
 
 const extracurriculars = [
@@ -21,20 +21,23 @@ const extracurriculars = [
     description: "Founder & Cohort Member",
     tags: ["ai", "customerDiscovery", "entrepreneurship", "userResearch", "ventureCapital"],
     image: athenaimg,
-    bgColor: '#000000'
+    bgColor: '#000000',
+    
   },
   {
     name: "Columbia Robotics Hackathon",
-    description: "Software developer on team to implement NVIDIA Instant Neural Radiance Field.",
+    description: "Software developer on hackathon team to implement NVIDIA Instant Neural Radiance Field",
     tags: ["ai", "hackathons"],
     image: hackathonimg,
-    bgColor: '#ffffff'
+    bgColor: '#ffffff',
+ 
   },
   {
     name: "Lion Smoothie",
     description: "Founder",
     tags: ["customerDiscovery", "entrepreneurship", "userResearch"],
-    image: lionsmoothieimg 
+    image: lionsmoothieimg, 
+    bgColor: '#38b6ff'
   },
   {
     name: "Columbia Startup Lab",
