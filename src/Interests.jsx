@@ -84,7 +84,7 @@ function Interests({ setCurrentView }) {
 
   return (
     <div className="page-wrapper">
-      <PageHeader pageName="Interests" setCurrentView={setCurrentView} />
+      <PageHeader pageName="interests" setCurrentView={setCurrentView} />
       <div className="interests-content">
         <div className="filter-row">
           {allTags.map((tag, i) => (

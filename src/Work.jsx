@@ -29,7 +29,7 @@ const projects = [
   },
   {
     name: "Teaching Tech Fellow, COSC 491: Special Topics in CS - AI Engineering",
-    description: "Teaching team member for COSC 491 Course at Bowie State University through CodePath.org's Univeristy Partnership, where I lead in-class AI programming and skills labs and hold office hours for a group of 11 undergraduate students.",
+    description: "Teaching team member for COSC 491 Course at Bowie State University through CodePath.org's University Partnership, where I lead in-class AI programming and skills labs and hold office hours for a group of 11 undergraduate students.",
     year: "2026",
     tags: ["ai", "teachingAssistant"],
     tools: ["Python", "Streamlit"],
