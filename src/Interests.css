@@ -118,10 +118,7 @@
   width: 100%;
   aspect-ratio: 16 / 10;
   border-radius: 8px;
-  background: 
-    radial-gradient(circle at top left, #e0c9f5 0%, transparent 55%),
-    radial-gradient(circle at bottom right, #f7e59a 0%, transparent 55%),
-    #ffffff;
+  background: #ffffff;
   border: 1px solid #e0e0e0;
   display: flex;
   flex-direction: column;
