@@ -12,14 +12,14 @@ const extracurriculars = [
   {
     name: "National Science Foundation Innovation Corps",
     description: "Technical and Entreprenurial Lead",
-    tags: ["ai", "entrepreneurship", "innovation", "customerDiscovery", "softwareDevelopment"],
+    tags: ["ai", "entrepreneurship", "customerDiscovery", "softwareDevelopment"],
     image: NSFlogo,
     bgColor: '#ffffff'
   },
   {
     name: "Athena Startup Incubator",
     description: "Founder & Cohort Member",
-    tags: ["ai", "customerDiscovery", "entrepreneurship", "userResearch", "ventureCapital"],
+    tags: ["ai", "customerDiscovery", "entrepreneurship", "ventureCapital"],
     image: athenaimg,
     bgColor: '#000000',
     
