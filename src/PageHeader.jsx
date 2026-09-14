@@ -7,10 +7,6 @@ function PageHeader({ pageName, setCurrentView }) {
   const inputRef = useRef(null)
 
   useEffect(() => {
-  inputRef.current.focus()
-  }, [])
-
-  useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date())
     }, 1000)

@@ -27,9 +27,6 @@ function Home({ setCurrentView }) {
     return () => clearInterval(timer)
   }, [])
 
-  useEffect(() => {
-    inputRef.current.focus()
-  }, [])
   
   return (
     <div className="home-page">
